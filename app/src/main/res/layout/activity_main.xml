@@ -24,7 +24,10 @@
             android:id="@+id/text_view_cal"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="3"/>
+            android:layout_weight="3"
+            android:textColor="@android:color/white"
+            android:gravity="right|center_vertical"
+            android:text="0"/>
 
         <Button
             android:id="@+id/btn_c"
@@ -63,7 +66,7 @@
             android:layout_weight="1"/>
 
         <Button
-            android:id="@+id/btn_divide"
+            android:id="@+id/btn_div"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="/"
@@ -99,10 +102,10 @@
             android:layout_weight="1"/>
 
         <Button
-            android:id="@+id/btn_multiply"
+            android:id="@+id/btn_mult"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="X"
+            android:text="x"
             android:layout_weight="1"/>
 
     </LinearLayout>
@@ -135,7 +138,7 @@
             android:layout_weight="1"/>
 
         <Button
-            android:id="@+id/btn_less"
+            android:id="@+id/btn_sub"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="-"
@@ -164,7 +167,7 @@
             android:layout_weight="1"/>
 
         <Button
-            android:id="@+id/btn_more"
+            android:id="@+id/btn_add"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="+"
