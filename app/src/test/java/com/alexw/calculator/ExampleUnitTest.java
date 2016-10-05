@@ -12,6 +12,8 @@ import static org.junit.Assert.*;
 public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() throws Exception {
-        assertEquals(new ExecuteCal("4"), 2 + 2);
+        ExecuteCal testExecuteCal = new ExecuteCal();
+        assertEquals("4.0" ,testExecuteCal.strExecuteCal("2+2"));
+
     }
 }

@@ -61,28 +61,47 @@ public class MainActivity extends AppCompatActivity {
 
         View.OnClickListener myListenner = new View.OnClickListener(){
 
-
             StringBuffer stringBuffCal = new StringBuffer();
+            String stringDisplay = new String();
+
             @Override
             public void onClick(View v) {
 
                 String myTag = (String) v.getTag();
-                stringBuffCal.append(myTag);
 
+                // add comma but not dot for calculate at stringBuffCal
+                if(myTag.equals(",")){
+                    stringBuffCal.append(".");
+                }
+                // add all tag without equal and comma tags
+                if(!myTag.equals("=") && !myTag.equals(",")){
+                    stringBuffCal.append(myTag);
+                }
+
+
+
+                // clear stringBuffCal and copy stringBuffCal to stringDisplay
                 if(myTag.equals("C")){
                     stringBuffCal.setLength(0);
+                    stringDisplay = stringBuffCal.toString();
                 }
-
+                // execute class ExecuteCal() when touch equal and copy stringBuffCal to stringDisplay
                 else if(myTag.equals("=")){
-                    new ExecuteCal(stringBuffCal.toString());
+                    ExecuteCal executeCal = new ExecuteCal();
+                    stringDisplay = executeCal.strExecuteCal(stringBuffCal.toString());
                 }
-
-
-                textViewCal.setText(stringBuffCal);
-
-
+                // copy stringBuffCal to stringDisplay
+                else{
+                    stringDisplay = stringBuffCal.toString();
+                }
+                // display stringBuffCal in app
+                textViewCal.setText(stringDisplay);
 
             }
+
+
+
+
         };
 
 
