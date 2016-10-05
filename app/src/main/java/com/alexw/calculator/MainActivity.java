@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -63,6 +64,8 @@ public class MainActivity extends AppCompatActivity {
 
             StringBuffer stringBuffCal = new StringBuffer();
             String stringDisplay = new String();
+            boolean operatorAlready = new Boolean(false);
+            String catchSecondOp = new String();
 
             @Override
             public void onClick(View v) {
@@ -79,20 +82,44 @@ public class MainActivity extends AppCompatActivity {
                 }
 
 
+                if(myTag.equals("+") || myTag.equals("-") || myTag.equals("x") || myTag.equals("/")){
+                    if (operatorAlready == false){
+                        operatorAlready = true;
+                    }
+                    else{
+                        // save the second operator in catchSecondOp
+                        catchSecondOp = stringBuffCal.substring(stringBuffCal.length()-1, stringBuffCal.length());
+                        Log.e(catchSecondOp, " is second operator");
 
-                // clear stringBuffCal and copy stringBuffCal to stringDisplay
+
+                        // AT WORK !!!!!!!!!!!!!!!!!!!!!!
+                        ExecuteCal executeCal = new ExecuteCal();
+                        stringDisplay = executeCal.strExecuteCal(stringBuffCal.toString());
+                        stringBuffCal.setLength(0);
+                        stringBuffCal.append(stringDisplay);
+                        stringDisplay = stringBuffCal.append(catchSecondOp).toString();
+                        stringBuffCal = new StringBuffer(stringDisplay);
+                        operatorAlready = false;
+                    }
+                }
+
+
+
+                // clear stringBuffCal and copy stringBuffCal empty to stringDisplay
                 if(myTag.equals("C")){
                     stringBuffCal.setLength(0);
                     stringDisplay = stringBuffCal.toString();
                 }
-                // execute class ExecuteCal() when touch equal and copy stringBuffCal to stringDisplay
+                // execute class ExecuteCal() when touch equal and copy stringBuffCal to stringDisplay and change stringBuffCal by stringDisplay
                 else if(myTag.equals("=")){
                     ExecuteCal executeCal = new ExecuteCal();
                     stringDisplay = executeCal.strExecuteCal(stringBuffCal.toString());
+                    stringBuffCal = new StringBuffer(stringDisplay);
                 }
-                // copy stringBuffCal to stringDisplay
+                // copy stringBuffCal to stringDisplay and change stringBuffCal by stringDisplay
                 else{
                     stringDisplay = stringBuffCal.toString();
+                    stringBuffCal = new StringBuffer(stringDisplay);
                 }
                 // display stringBuffCal in app
                 textViewCal.setText(stringDisplay);
