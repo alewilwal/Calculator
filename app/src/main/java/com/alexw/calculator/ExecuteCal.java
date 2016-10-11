@@ -7,9 +7,24 @@ import java.util.StringTokenizer;
  */
 public class ExecuteCal extends MainActivity{
 
-    public String strExecuteCal(String stringCal) {
+    float sum = new Float(0);
+    String operator = new String();
 
-        float sum = 0;
+    public void strAddCal(String stringCal) {
+        operator = "+";
+        //sum = stringCal;
+    }
+
+
+
+    public String strExecuteCal(String stringCal) {
+/*
+        StringBuffer stringBuffCal = new StringBuffer();
+
+        boolean operatorAlready = new Boolean(false);
+        String catchSecondOp = new String();
+
+
 
         if (stringCal.length()>1){
             StringTokenizer tokens = new StringTokenizer(stringCal, "+");
@@ -17,7 +32,7 @@ public class ExecuteCal extends MainActivity{
             String secondNumber = tokens.nextToken();
             sum = Float.parseFloat(firstNumber.toString()) + Float.parseFloat(secondNumber.toString());
 
-        }
+        }*/
         return Float.toString(sum);
 
     }
