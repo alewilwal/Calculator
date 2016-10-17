@@ -1,64 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/activity_main"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical"
-    android:weightSum="6">
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:weightSum="4"
-        android:background="@color/colorPrimaryDark">
-
-        <TextView
-            android:id="@+id/text_view_cal"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="3"
-            android:textColor="@android:color/white"
-            android:gravity="right|center_vertical"
-            android:text="0"/>
-
-        <Button
-            android:id="@+id/btn_c"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:text="c"
-            android:layout_weight="1"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="4">
-
-        <fragment
-            android:id="@+id/frag1"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:name="com.alexw.calculator.SimpleFragment"
-            android:orientation="vertical" >
-        </fragment>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-
-        <Button
-            android:id="@+id/btn_equal"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="="
-            android:layout_weight="1"/>
-
-    </LinearLayout>
+    // Original Layout
+    <include layout="@layout/content_layout"/>
 
 
-</LinearLayout>
+    // Drawer Layout
+    <include layout="@layout/drawer_layout"/>
+
+
+</android.support.v4.widget.DrawerLayout>

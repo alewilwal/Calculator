@@ -1,68 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/activity_land_main"
-    android:orientation="vertical"
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:weightSum="6">
+    android:layout_height="match_parent">
+
+    // Original Layout
+    <include layout="@layout/content_layout"/>
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:weightSum="4"
-        android:background="@color/colorPrimaryDark">
+    // Drawer Layout
+    <include layout="@layout/drawer_layout"/>
 
-        <TextView
-            android:id="@+id/text_view_cal"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="3"
-            android:textColor="@android:color/white"
-            android:gravity="right|center_vertical"
-            android:text="0"/>
 
-        <Button
-            android:id="@+id/btn_c"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:text="c"
-            android:layout_weight="1"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="4">
-
-        <fragment android:name="com.alexw.calculator.ScientistFragment"
-        android:id="@+id/frag2"
-        android:layout_weight="2"
-        android:layout_width="0dp"
-        android:layout_height="match_parent" />
-
-        <fragment android:name="com.alexw.calculator.SimpleFragment"
-        android:id="@+id/frag1"
-        android:layout_weight="2"
-        android:layout_width="0dp"
-        android:layout_height="match_parent" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-
-        <Button
-            android:id="@+id/btn_equal"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="="
-            android:layout_weight="1"/>
-
-    </LinearLayout>
-
-</LinearLayout>
+</android.support.v4.widget.DrawerLayout>
